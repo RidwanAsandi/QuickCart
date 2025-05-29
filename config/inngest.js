@@ -8,7 +8,7 @@ export const inngest = new Inngest({ id: "quickcart-next" });
 //Inggest function to save user data to a database
 export const syncUserCreation = inngest.createFunction(
   {
-    id: "sync-user-from-clerk",
+    id: "sync-user-to-clerk",
   },
   { event: "clerk/user.created" },
   async ({ event }) => {
@@ -45,7 +45,6 @@ export const syncUserUpdation = inngest.createFunction(
     await User.findByIdAndUpdate(id, userData);
   }
 );
-
 
 // inngest function to delete user data from database
 export const syncUserdeletion = inngest.createFunction(
